@@ -1,0 +1,45 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+    "name": "ayria",
+    "license": "MIT",
+
+    "dependencies": [
+        {
+            "name": "openssl",
+            "platform": "windows & static"
+        },
+        {
+            "name": "mimalloc",
+            "platform": "windows & static"
+        },
+        {
+            "name": "capstone",
+            "platform": "windows & static"
+        }
+    ],
+
+    "features": {
+        "better-hooks": {
+            "description": "Enables the use of more advanced hooks & disassembly",
+            "dependencies": [
+                {
+                    "name": "minhook",
+                    "platform": "windows & static"
+                },
+                {
+                    "name": "capstone",
+                    "platform": "windows & static"
+                }
+            ]
+        },
+        "abseil-containers": {
+            "description": "Make use of flat hashmaps/sets and proper inlined vectors",
+            "dependencies": [
+                {
+                    "name": "abseil",
+                    "platform": "windows & static"
+                }
+            ]
+        }
+    }
+}

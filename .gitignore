@@ -27,6 +27,14 @@
 *.lib
 
 # Executables
+/Bin
 *.exe
 *.out
 *.app
+
+# IDE workfolders.
+/.vs
+/out
+
+# Temporary & local experiements
+/local_build/
