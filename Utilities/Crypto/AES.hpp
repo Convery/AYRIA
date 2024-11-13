@@ -195,7 +195,6 @@ namespace AES::Implementation
         constexpr uint8_t Div3(uint8_t Input)
         {
             // Equivalent to Mul246
-
             Input ^= Input << 1;
             Input ^= Input << 2;
             Input ^= Input << 4;
@@ -208,8 +207,6 @@ namespace AES::Implementation
         constexpr uint32_t Mul3(uint32_t Input)
         {
             return ((Input & 0x3F3F3F3F) << 2) ^ ((Input & 0x80808080) >> 7) * 0x36 ^ ((Input & 0x40404040) >> 6) * 0x1B;
-
-            return ((Input & 0x7F7F7F7F) << 1) ^ ((Input & 0x80808080) >> 7) * 0x1B;
         }
 
         // Plumbing for 128-bit blocks.
@@ -747,9 +744,9 @@ namespace AES::Modes
     }
 }
 
-
+// WIP
 #if 0
-namespace AES::Detail
+namespace AES::Modes
 {
     using namespace AES::Implementation;
 
@@ -2202,10 +2199,9 @@ namespace AES::Detail
 
     // Default mode, unpadded CBC.
 }
-#endif
 
 
-#if defined(ENABLE_UNITTESTS2)
+#if defined(ENABLE_UNITTESTS)
 namespace Unittests
 {
     // Random data.
@@ -2287,4 +2283,6 @@ namespace Unittests
         }
     }
 }
+#endif
+
 #endif
